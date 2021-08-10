@@ -5,7 +5,7 @@
  */
 package Servlet;
 
-import Metodos.SQLLoguin;
+import Metodos.Persistencia;
 import Metodos.loguin;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,7 +23,7 @@ public class registrarUsuario extends HttpServlet {
         String nombre = request.getParameter("usuario");
         String contrasenia = request.getParameter("contrasenia"); 
        
-        SQLLoguin co = new SQLLoguin();
+        Persistencia co = new Persistencia();
         if(co.registrar(nombre, contrasenia)){
             response.sendRedirect("index.jsp");
             

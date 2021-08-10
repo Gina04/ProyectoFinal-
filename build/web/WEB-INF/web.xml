@@ -8,6 +8,18 @@
         <servlet-name>registrarUsuario</servlet-name>
         <servlet-class>Servlet.registrarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrarHuesped</servlet-name>
+        <servlet-class>Servlet.registrarHuesped</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>huesped</servlet-name>
+        <servlet-class>Servlet.huesped</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminar</servlet-name>
+        <servlet-class>Servlet.eliminar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioSesion</servlet-name>
         <url-pattern>/InicioSesion</url-pattern>
@@ -15,6 +27,18 @@
     <servlet-mapping>
         <servlet-name>registrarUsuario</servlet-name>
         <url-pattern>/registrarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarHuesped</servlet-name>
+        <url-pattern>/registrarHuesped</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>huesped</servlet-name>
+        <url-pattern>/huesped</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminar</servlet-name>
+        <url-pattern>/eliminar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

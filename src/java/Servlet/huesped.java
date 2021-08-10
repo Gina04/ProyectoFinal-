@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlet;
 
 import Metodos.Persistencia;
@@ -8,33 +12,43 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author georg
  */
-public class InicioSesion extends HttpServlet {
+public class huesped extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        // $nombre=$_POST['nombre'] asi se capturan datos en php
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido"); 
+        String mail = request.getParameter("mail");
         
-        //capturo los datos del formulariore
-        String usuario = request.getParameter("usuario");
-        String contrasenia=request.getParameter("contrasenia");
+        Persistencia consultas = new Persistencia();
         
-        Persistencia insertar = new Persistencia();
+        if(consultas.registrarHuesped(nombre,apellido, mail,12)){
+          response.sendRedirect("index.jsp");
         
-        if(insertar.autenticacion(usuario, contrasenia)){
-            HttpSession objsesion= request.getSession(true);
-            objsesion.setAttribute("usuario", usuario);
-            response.sendRedirect("registrarHuesped.jsp");
         }else{
-            response.sendRedirect("index.jsp");
-        
+            response.sendRedirect("menu.jsp");
+            
         }
+        
+        
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

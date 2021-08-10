@@ -8,32 +8,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author georg
- */
-public class InicioSesion extends HttpServlet {
 
+public class eliminar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        //capturo los datos del formulariore
-        String usuario = request.getParameter("usuario");
-        String contrasenia=request.getParameter("contrasenia");
-        
-        Persistencia insertar = new Persistencia();
-        
-        if(insertar.autenticacion(usuario, contrasenia)){
-            HttpSession objsesion= request.getSession(true);
-            objsesion.setAttribute("usuario", usuario);
-            response.sendRedirect("registrarHuesped.jsp");
-        }else{
-            response.sendRedirect("index.jsp");
-        
+        try (PrintWriter out = response.getWriter()) {
+            Persistencia base = new Persistencia();
+            int id=0; 
+            id = Integer.parseInt(request.getParameter("idseleccion")); 
+            base.consultaSQL("DELETE FROM clientes WHERE idHuespued= " + id); 
+            response.sendRedirect("listaHuespedes.jsp");
         }
     }
 
@@ -77,3 +63,5 @@ public class InicioSesion extends HttpServlet {
     }// </editor-fold>
 
 }
+
+

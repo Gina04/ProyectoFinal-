@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 body{
     height: 100vh; 
+
     
     
 }
@@ -49,35 +50,46 @@ footer{
     background:#E7D2CC;
 }
 
-#contenido_menu{
-   /* background: yellow;*/
-}
+
 
 #buscar_pasajeros{
    background: #E7D2CC;
     font-size: 1.3rem;
 }
 
-#registro_pasajeros{
+#registro_huesped{
+    height: 800px; 
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgba(139,139,139,0.3);
     background: #EEEDE7;
-    display: flex;
-    flex-wrap: wrap;
     font-size: 1.3rem;
     padding: 20px;
+  
     
 }
+
+li{
+    display:inline;
+    padding-left: 15px;
+    
+}
+
 #lista_pasajeros{
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: rgba(139,139,139,0.3);
-    height: 200px;
-    margin-top: 50px;
     overflow: scroll; 
     background: #EEEDE7;
     
 }
 
+li{
+   list-style:none;
+}
+
+nav{
+    font-size: 1.5rem;
+   
+}
 
